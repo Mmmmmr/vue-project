@@ -20,6 +20,22 @@
                         <th>操作</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr v-for="(item, index) in list">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>
+                            <button @click="handleRuduce(index)" 
+                            :disable="item === 1">-</button>
+                            {{ item.count }}
+                            <button @click="handleAdd(index)">+</button>
+                        </td>
+                        <td>
+                            <button @click="handleRemove(index)">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
                     
             </table>
             <div>总价：¥{{ totalPrice }}</div>
